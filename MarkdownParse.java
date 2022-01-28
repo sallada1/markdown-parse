@@ -14,10 +14,13 @@ public class MarkdownParse {
             //System.out.println(currentIndex);
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             if(nextOpenBracket == -1 || 
-                (nextOpenBracket - 1 >= 0 && markdown.charAt(nextOpenBracket - 1) == '!')){
+                (nextOpenBracket - 1 >= 0 && markdown.charAt(nextOpenBracket - 1) == '!')) {
                 break;
             }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
+            if(markdown.charAt(nextCloseBracket + 1) != '(') {
+                break;
+            }
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
