@@ -14,6 +14,9 @@ public class MarkdownParse {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
+            if(nextCloseBracket+1!=openParen){
+            break;
+            }
             int closeParen = markdown.indexOf(")", openParen);
             if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1) break;
             if(nextOpenBracket > 0 && markdown.charAt(nextOpenBracket - 1) != '!'){
