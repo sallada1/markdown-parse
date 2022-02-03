@@ -9,16 +9,11 @@ import java.util.List;
 public class MarkdownParseTest {
     @Test
     public void addition() {
-        assertEquals(2, 1 + 1);
+        assertEquals(2, 1 + 3);
     }
     @Test
     public void testGetLinks() throws IOException{
         assertEquals(List.of("https://something.com","some-page.html"),MarkdownParse.getLinks(Files.readString(Path.of("test-file.md"))));
     }
-    @Test
-    public void testGetLinks2() throws IOException{
-        assertEquals(List.of("[]"),MarkdownParse.getLinks(Files.readString(Path.of("test-file2.md"))));
-    }
-    
     
 }
