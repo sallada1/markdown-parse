@@ -9,7 +9,7 @@ import java.util.List;
 public class MarkdownParseTest {
     @Test
     public void addition() {
-        assertEquals(2, 1 + 3);
+        assertEquals(2, 1 + 1);
     }
     @Test
     public void testGetLinks() throws IOException{
