@@ -17,7 +17,7 @@ public class MarkdownParse {
                 (nextOpenBracket - 1 >= 0 && markdown.charAt(nextOpenBracket - 1) == '!')) {
                 break;
             }
-            int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
+            int nextCloseBracket = markdown.indexOf("](", nextOpenBracket);
             if(markdown.charAt(nextCloseBracket + 1) != '(') {
                 break;
             }
@@ -26,9 +26,12 @@ public class MarkdownParse {
             if (nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1){ 
                 break;
             }
+            
             if(nextOpenBracket > 0 && markdown.charAt(nextOpenBracket - 1) != '!'){
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                toReturn.add(markdown.substring(nextOpenBracket + 1,nextCloseBracket).replace("`","");
+    
             }
+             
             currentIndex = closeParen + 1;
         }
         //System.out.println(currentIndex);
